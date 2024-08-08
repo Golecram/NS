@@ -1,0 +1,16 @@
+import pandas as pd
+
+# File paths
+input_file_path = '/Users/golecram/Desktop/VSCode/Modelos_Backtest_Completo.csv'  # Replace with your input CSV file path
+output_file_path = '/Users/golecram/Desktop/VSCode/Modelos_Backtest_Completo_Tail.csv'  # Replace with the desired output CSV file path
+
+# Read the original data
+df = pd.read_csv(input_file_path, sep= ';')
+
+# Select the last 10,000 rows
+df_last_10000 = df.tail(100000)
+
+# Save the selected rows to a new CSV file
+df_last_10000.to_csv(output_file_path, index=False, sep=';')
+
+print(f'The last 10,000 rows have been saved to {output_file_path} with semicolon as delimiter.')
